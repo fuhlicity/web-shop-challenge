@@ -5,7 +5,7 @@ const store = new Vuex.Store({
     store: {
       namespaced: true,
       state: {
-        bShowCart: true,
+        bShowCart: false,
       },
       mutations: {
         setShowCart(state, bValue) {
