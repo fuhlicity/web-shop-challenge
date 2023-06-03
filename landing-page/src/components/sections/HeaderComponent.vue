@@ -55,9 +55,9 @@ export default {
         return {
             bDisplaySearch: false,
             aSlides: [
-                '../../src/images/products/sale-1.png',
-                '../../src/images/products/sale-2.png',
-                '../../src/images/products/sale-3.png',
+                '../../src/images/sale/sale-1.png',
+                '../../src/images/sale/sale-2.png',
+                '../../src/images/sale/sale-3.png',
             ]
         };
     },
