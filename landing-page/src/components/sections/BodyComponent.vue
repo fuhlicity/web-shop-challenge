@@ -22,7 +22,7 @@
             <div id="spotlight-text">
                 Shop our critically acclaimed chairs. 🗣️
                 <br>
-                <button class="button">
+                <button class="button" id="spotlight-shop">
                     Shop now
                 </button>
             </div>
@@ -139,13 +139,12 @@ export default {
   display: flex;
   flex-direction: column;
   box-shadow: 0 2px 6px rgba(0, 78, 86, 0);
-  transition: border .5s ease-in-out, color .5s ease-in-out, font-weight .5s ease-in-out, box-shadow .5s ease-in-out;
+  transition: border .5s ease-in-out, color .5s ease-in-out, box-shadow .5s ease-in-out;
 }
 
 .categ-items:hover {  
   border: 3px solid #004e56 !important;
   color: #004e56;
-  font-weight: bold;
 }
 
 .categ-items:last-child {
@@ -162,6 +161,7 @@ export default {
     margin-top: 40px;
     font-size: 32px;
     text-align: center;
+    font-family: 'Yeseva One', cursive;
 }
 
 
@@ -304,6 +304,10 @@ export default {
         height: 190px;
     }
   
+}
+
+#spotlight-shop {
+    font-weight: bold;
 }
 
 

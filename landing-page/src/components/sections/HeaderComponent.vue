@@ -5,10 +5,11 @@
             <h1>Chairs!🥂</h1>
             </div>
             <div id="header-actions">
-                <img src="../../images/account.png"/>
-                <img src="../../images/cart.png" @click="showCart"/>
-                <img src="../../images/help.png" />
-                <img src="../../images/search.png" @click="bDisplaySearch = !bDisplaySearch"/>
+                <img src="https://img.icons8.com/ios-filled/50/ffe01b/user-male-circle.png" alt="user-male-circle--v1"/>
+                <img src="https://img.icons8.com/glyph-neue/35/ffe01b/shopping-cart.png" alt="shopping-cart" @click="showCart"/>
+                <img src="https://img.icons8.com/sf-regular-filled/35/ffe01b/help.png" alt="help"/>
+                <img src="https://img.icons8.com/sf-regular/48/ffe01b/search.png" alt="search" @click="bDisplaySearch = !bDisplaySearch"/>
+
             </div>
             
         </div>
@@ -77,6 +78,9 @@ export default {
 </script>
 
 <style>
+#header-title > h1 {
+    font-family: 'Yeseva One', cursive;
+}
 .carousel__item {
   min-height: 500px;
   width: 100%;
@@ -106,5 +110,84 @@ export default {
 .sale-img > img {
     width: 100vw;
     height: 490px;
+}
+
+#header-component-main {
+    background-color: #004e56;
+}
+
+#nav-bar {
+    position: sticky;
+    top: 0;
+    width: auto;
+    height: 100px;
+    display: flex;
+    color: white;
+    padding: 20px;
+    align-items: center;
+    justify-content: space-between;
+    z-index: 9999;
+    background-color: #004e56;
+}
+
+#header-title {
+    float: left;
+}
+
+#header-actions {
+    display: flex;
+    justify-content: flex-end;
+}
+
+
+#header-actions > img {
+    width: 30px;
+    cursor: pointer;
+    margin-left: 10px;
+}
+
+#header-content {
+    height: 500px;
+}
+
+#header-search {
+    padding: 0 20px;
+    display: flex;
+    gap: 20px;
+    transition: transform 0.5s ease-out, opacity 0.5s ease-out;
+    transform: translateY(0);
+    opacity: 1;
+}
+
+#header-search.hide {
+    transform: translateY(-100%);
+    opacity: 0;
+    display: none;
+}
+
+#search-input {
+    width: 100%;
+    border-radius: 4px !important;
+    min-height: 50px;
+    font-size: 17px;
+    line-height: 20px;
+    padding: 0 15px !important;
+    display: inline-block;
+    margin-bottom: 24px;
+    vertical-align: middle;
+    background-color: #ffffff;
+    border: 1px solid rgba(36,28,21,0.3);
+    -ms-transition: all 0.2s ease-in-out 0s;
+    transition: all 0.2s ease-in-out 0s;
+    font-weight: 100;
+}
+
+input[type="search"] {
+    outline-color: transparent;
+    transition: outline-color 0.3s ease-in-out;
+}
+
+input[type="search"]:focus {
+    outline-color: #004e56;
 }
 </style>
