@@ -1,0 +1,77 @@
+body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    background-color: #f6f6f4;
+}
+
+.button{
+    padding: 0 42px;
+    font-weight: 500;
+    text-align: center;
+    vertical-align: middle;
+    -ms-user-select: none;
+    -moz-user-select: none;
+    user-select: none;
+    white-space: nowrap;
+    overflow: hidden;
+    margin-right: 18px;
+    border: 1px solid transparent;
+    display: inline-block;
+    transition: border 0.2s ease-in-out 0s, box-shadow 0.2s ease-in-out 0s, background-color 0.2s ease-in-out 0s;
+    font-size: 1.6rem;
+    height: 48px;
+    line-height: 46px;
+    background-color: #F1D41C;
+    color: #fff;
+    font-size: 20px;
+    border-radius: 12px;
+    cursor: pointer
+}
+
+.button:hover{
+    background-color: #FFE01B;
+}
+
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 9999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+button:focus {
+    outline: none !important;
+}
+
+.button-cart {
+    background-color: #004e56;
+    width: 100%;
+    padding: 0;
+    font-size: 16px;
+}
+
+.button-cart:hover {
+    background-color: #006570;
+}
+
+#close-cart--btn {
+    background-color: #f6f6f4;
+    border: 2px solid #004e56;
+    color: #004e56
+}
+
+#close-cart--btn:hover {
+    background-color: #004e56;
+    border: 2px solid #004e56;
+    color: #f6f6f4
+}
+
+.swal2-container {
+    z-index: 9999;
+}
