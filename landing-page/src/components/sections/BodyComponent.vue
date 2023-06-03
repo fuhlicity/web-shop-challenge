@@ -1,11 +1,11 @@
 <template>
     <div id="body-component-main">
         <div id="body-categ">
-            <div id="categ-title">
+            <div id="categ-title" class="center-content">
                 <h1>See our latest collections ✨</h1>
             </div>
             <div id="categ-list">
-                <div class="categ-items" v-for="(collection, index) in aCollection" :key="index">
+                <div class="categ-items center-content" v-for="(collection, index) in aCollection" :key="index">
                     <img :src="collection.image">
                     <div class="categ-name">{{ collection.name }}</div>
                 </div>
@@ -13,7 +13,7 @@
         </div>
         <div id="body-signup">
             <p id="signup-text">Become one of us & get 10% off your first purchase + rewards just for shopping!</p>
-            <div id="signup-links">
+            <div id="signup-links" class="center-content">
                 <div id="signup-signup" class="signup-links">Become a member 🧑‍🤝‍🧑</div>
                 <div id="signup-subscribe" class="signup-links">Subscribe to our news letter ✉️</div>
             </div>
@@ -28,10 +28,10 @@
             </div>
         </div>
         <div id="body-spotted">
-            <div id="spotted-text" class="center-contet">
+            <div id="spotted-text" class="center-content">
                 Spotted! 📷
             </div>
-            <div id="spotted-subtitle" class="center-contet">
+            <div id="spotted-subtitle" class="center-content">
                 Upload photos of our products and use the hashtag <span> #Chairs </span> to get featured in our website 😉
             </div>
             <Carousel :itemsToShow="3.95" :wrapAround="true" :transition="500">
@@ -116,16 +116,14 @@ export default {
 
 <style>
 #categ-title {
-    padding: 50px;
-    text-align: center;
-    display: flex;
-    justify-content: center;
+    padding-top: 100px;
 }
 #categ-list {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   grid-gap: 20px;
   justify-items: center;
+  padding-top: 50px;
 }
 
 .categ-items {
@@ -133,10 +131,7 @@ export default {
   border: 1px solid #004e56 !important;
   padding: 20px;
   cursor: pointer;
-  width: 350px;
-  justify-content: center;
-  text-align: center;
-  display: flex;
+  width: 300px;
   flex-direction: column;
   box-shadow: 0 2px 6px rgba(0, 78, 86, 0);
   transition: border .5s ease-in-out, color .5s ease-in-out, box-shadow .5s ease-in-out;
@@ -178,12 +173,6 @@ export default {
     font-size: 28px;
     text-align: center;
     color: #006570;
-}
-
-#signup-links {
-    text-align: center;
-    display: flex;
-    justify-content: center;
 }
 
 .signup-links {
@@ -309,6 +298,4 @@ export default {
 #spotlight-shop {
     font-weight: bold;
 }
-
-
 </style>

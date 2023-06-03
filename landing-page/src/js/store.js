@@ -6,10 +6,14 @@ const store = new Vuex.Store({
       namespaced: true,
       state: {
         bShowCart: false,
+        bShowSearch: false
       },
       mutations: {
         setShowCart(state, bValue) {
           state.bShowCart = bValue;
+        },
+        setShowSearch(state, bValue) {
+          state.bShowSearch = bValue;
         },
       },
     },

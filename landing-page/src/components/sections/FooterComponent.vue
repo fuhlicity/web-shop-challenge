@@ -113,7 +113,7 @@ a:hover {
     height: 600px;
     margin-top: 100px;
     text-align: left;
-    padding: 100px;
+    padding-top: 100px;
 }
 
 .footer-title {
@@ -126,7 +126,8 @@ a:hover {
 
 #footer-links {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
+    gap: 50px;
 }
 
 .footer-info {
@@ -134,7 +135,7 @@ a:hover {
 }
 #footer-socials {
     text-align: center;
-    margin-top: 50px;
+    margin-top: 80px;
 }
 
 #footer-socials > li{
