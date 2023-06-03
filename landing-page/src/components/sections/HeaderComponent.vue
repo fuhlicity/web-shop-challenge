@@ -8,15 +8,12 @@
                 <img src="https://img.icons8.com/ios-filled/50/ffe01b/user-male-circle.png" alt="user-male-circle--v1"/>
                 <img src="https://img.icons8.com/glyph-neue/35/ffe01b/shopping-cart.png" alt="shopping-cart" @click="showCart"/>
                 <img src="https://img.icons8.com/sf-regular-filled/35/ffe01b/help.png" alt="help"/>
-                <img src="https://img.icons8.com/sf-regular/48/ffe01b/search.png" alt="search" @click="bDisplaySearch = !bDisplaySearch"/>
+                <img src="https://img.icons8.com/sf-regular/48/ffe01b/search.png" alt="search" @click="toggleSearch"/>
 
             </div>
             
         </div>
-        <div id="header-search" :class="{ hide: !bDisplaySearch }">
-            <input type="search" id="search-input"/>
-            <button class="button">Search</button>
-        </div>
+        <SearchComponent/>
         
         <div id="header-content">
             <carousel :items-to-show="1">
@@ -41,6 +38,7 @@
 <script>
 import { mapMutations, mapState } from 'vuex';
 import CartComponent from './header-sections/CartComponent.vue';
+import SearchComponent from './header-sections/SearchComponent.vue';
 import 'vue3-carousel/dist/carousel.css'
 import { Carousel, Slide, Pagination, Navigation } from 'vue3-carousel'
 export default {
@@ -49,7 +47,8 @@ export default {
         Slide,
         Pagination,
         Navigation,
-        CartComponent
+        CartComponent,
+        SearchComponent
     },
     
     data() {
@@ -64,13 +63,17 @@ export default {
     },
 
     computed: {
-        ...mapState('store', ['bShowCart'])
+        ...mapState('store', ['bShowCart', 'bShowSearch'])
     },
 
     methods: {
-        ...mapMutations('store', ['setShowCart']),
+        ...mapMutations('store', ['setShowCart', 'setShowSearch']),
         showCart() {
             this.setShowCart(true);
+            document.body.style.overflow = 'hidden';
+        },
+        toggleSearch() {
+            this.setShowSearch(!this.bShowSearch);
         }
     }
 
@@ -109,21 +112,21 @@ export default {
 }
 .sale-img > img {
     width: 100vw;
-    height: 490px;
+    height: auto;
 }
 
 #header-component-main {
     background-color: #004e56;
+    width: 100vw;
 }
 
 #nav-bar {
     position: sticky;
     top: 0;
     width: auto;
-    height: 100px;
-    display: flex;
     color: white;
-    padding: 20px;
+    padding: 0 20px;
+    display: flex;
     align-items: center;
     justify-content: space-between;
     z-index: 9999;
@@ -143,51 +146,7 @@ export default {
 #header-actions > img {
     width: 30px;
     cursor: pointer;
-    margin-left: 10px;
+    margin-right: 20px;
 }
 
-#header-content {
-    height: 500px;
-}
-
-#header-search {
-    padding: 0 20px;
-    display: flex;
-    gap: 20px;
-    transition: transform 0.5s ease-out, opacity 0.5s ease-out;
-    transform: translateY(0);
-    opacity: 1;
-}
-
-#header-search.hide {
-    transform: translateY(-100%);
-    opacity: 0;
-    display: none;
-}
-
-#search-input {
-    width: 100%;
-    border-radius: 4px !important;
-    min-height: 50px;
-    font-size: 17px;
-    line-height: 20px;
-    padding: 0 15px !important;
-    display: inline-block;
-    margin-bottom: 24px;
-    vertical-align: middle;
-    background-color: #ffffff;
-    border: 1px solid rgba(36,28,21,0.3);
-    -ms-transition: all 0.2s ease-in-out 0s;
-    transition: all 0.2s ease-in-out 0s;
-    font-weight: 100;
-}
-
-input[type="search"] {
-    outline-color: transparent;
-    transition: outline-color 0.3s ease-in-out;
-}
-
-input[type="search"]:focus {
-    outline-color: #004e56;
-}
 </style>

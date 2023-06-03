@@ -1,7 +1,8 @@
 <template>
     <div id="cart-component-main">
-        <div id="cart-wrapper" class="modal-overlay" v-show="isCartVisible">
-            <div id="cart-content">
+        <Transition name="slide-fade">
+            <div id="cart-wrapper" class="modal-overlay" v-if="isCartVisible">
+            <div id="cart-content" class="center-content">
                 <div id="cart-header">
                     <h2>Cart 🛒</h2>
                     <button type="button" class="btn close-icon hide-cart--btn" aria-label="Close" @click="hideCart">
@@ -12,15 +13,15 @@
                 </div>
                 <div id="cart-body">
                     <div id="cart-list">
-                        <div class="cart-item">
+                        <div class="cart-item" v-for="(cart_list, index) in aCart" :key="index">
                             <div class="cart-item-details">
-                                <img src="../../../images/products/amira-aldia-amal-pyo3gzTa-qM-unsplash.jpg"/>
+                                <img :src="cart_list.image"/>
                                 <div class="cart-item-text">
-                                    <div class="cart-item-name">Dining set chair</div>
-                                    <div class="cart-item-price">9999</div>
+                                    <div class="cart-item-name">{{cart_list.name}}</div>
+                                    <div class="cart-item-price">₱{{cart_list.price}}</div>
                                 </div>
                                 <div class="cart-item-qty">
-                                    <input type="text"/>
+                                    <input type="text" :value="cart_list.quantity"/>
                                 </div>
                                 <button type="button" class="btn close-icon del-item--btn" aria-label="Close">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash3" viewBox="0 0 16 16">
@@ -31,7 +32,7 @@
                         </div>
                     </div>
                     <div id="cart-total">
-                        Total: <span>999</span>
+                        Total: ₱<span>83,000</span>
                     </div>
                 </div>
                 <div id="cart-footer">
@@ -41,6 +42,8 @@
             </div>
 
         </div>
+        </Transition>
+        
         
     </div>
 </template>
@@ -50,6 +53,42 @@ import { mapMutations, mapState } from 'vuex';
 export default {
     data() {
         return {
+            aCart: [
+                {
+                    name: "Dining chairs",
+                    price: '2,000',
+                    quantity: 3,
+                    image: '../../src/images/products/prod-19.png'
+                },
+                
+                {
+                    name: "Cafe chairs",
+                    price: '5,000',
+                    quantity: '8',
+                    image: '../../src/images/products/prod-2.png'
+                },
+
+                {
+                    name: "Reading chairs",
+                    price: '8,000',
+                    quantity: '1',
+                    image: '../../src/images/products/prod-17.png'
+                },
+
+                {
+                    name: "Bar stool",
+                    price: '3,000',
+                    quantity: '3',
+                    image: '../../src/images/products/prod-11.png'
+                },
+
+                {
+                    name: "Porch chair",
+                    price: '10,000',
+                    quantity: '2',
+                    image: '../../src/images/products/prod-14.png'
+                }
+            ]
         };
     },
     computed: {
@@ -65,7 +104,8 @@ export default {
         ...mapMutations('store', ['setShowCart']),
 
         hideCart() {
-            this.setShowCart(false)
+            this.setShowCart(false);
+            document.body.style.overflow = '';
         },
 
         checkOut() {
@@ -90,9 +130,6 @@ export default {
     height: 100vh;
     background-color: #f6f6f4;
     z-index: 9999;
-    text-align: center;
-    display: flex;
-    justify-content: flex-start;
     flex-direction: column;
     padding:20px;
 }
@@ -191,5 +228,6 @@ export default {
     font-weight: bolder;
     padding: 0 10px;
 }
+
 </style>
 
